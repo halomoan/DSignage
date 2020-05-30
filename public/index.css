@@ -1,0 +1,197 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+}
+body {
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+img {
+  width: 100%;
+}
+
+.mrcard-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  margin-top: 3rem;
+  margin-left: 0rem;
+}
+
+.mrcard {
+  width: 100%;
+  max-width: 98rem;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 1.4rem 8rem rgba(0, 0, 0, 0.2);
+  border-radius: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0.8rem;
+}
+
+.mrcard-img {
+  min-width: 100%;
+  max-width: 100%;
+  height: 25rem;
+  transform: translate(0, -3rem);
+  position: relative;
+}
+
+.mrcard-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0.8rem;
+}
+
+.mrcard-desk {
+  width: 100%;
+  height: 350px;
+  margin: 0;
+  padding: 0;
+  transform: translateY(-2rem);
+}
+
+.mrcard-info {
+  transform: translateY(-3rem);
+}
+
+.mrcard-mrname {
+  display: flex;
+  flex-direction: row-reverse;
+  text-shadow: 3px 3px rgba(118, 238, 208, 0.377);
+}
+.mrcard-mrname a {
+  color: green;
+  text-decoration: none;
+  font-size: 36px;
+  text-transform: uppercase;
+}
+
+.mrcard-mrlevel {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.mrcard-mrlevel a {
+  color: white;
+  text-decoration: none;
+  font-size: 180%;
+  text-transform: uppercase;
+
+  background-color: #f0ad4e;
+  border-radius: 0.2em;
+  padding: 0em 0.4em 0em;
+}
+
+.mrcard-mrlevel span {
+  color: white;
+  text-decoration: none;
+  font-size: 180%;
+
+  background-color: gray;
+  border-radius: 0.2em;
+  padding: 0em 0.4em 0em;
+  margin-right: 5px;
+}
+
+.mrcard-time {
+  width: 300px;
+}
+
+.mrcard-time span {
+  display: inline-block;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: bolder;
+}
+
+.mrcard-owner span {
+  display: block;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.mrcard-title {
+  font-size: 2rem;
+  margin: 1.5rem 0 0rem;
+  text-transform: capitalize;
+  color: #4facfe;
+  height: 5rem;
+  font-weight: bold;
+}
+
+.mrcard-text {
+  margin: 1.5rem 0 2rem;
+  font-size: 1.4rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.mrcard-cta {
+  display: inline-block;
+  padding: 1.5rem 2rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  color: #fff;
+  background-image: linear-gradient(to right, #4facfe 0, #00f2fe 100%);
+  border-radius: 0.8rem;
+  text-decoration: none;
+}
+
+.mrcard-cta:hover {
+  background-image: linear-gradient(to right, #00f2fe 0, #4facfe 100%);
+}
+
+.mrcard-next {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.mrcard-nextbar {
+  background-color: #5bc0de;
+  border-radius: 0.25rem;
+  padding: 0.2em 0.6em 0.1em;
+  color: white;
+}
+
+.mrcard-next-time span {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.mrcard-next-owner span {
+  display: block;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.mrcard-next-title span {
+  display: block;
+  color: #4facfe;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
