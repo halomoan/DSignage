@@ -4,6 +4,7 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import Cards from "./components/Cards";
 import Container from "react-bootstrap/Container";
+import ANPFullScreen from "./components/ANPFullScreen";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Container fluid>
         <NavBar />
         <Cards />
+        <ANPFullScreen></ANPFullScreen>
       </Container>
     </div>
   );

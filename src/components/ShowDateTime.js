@@ -24,7 +24,7 @@ export default class ShowDateTime extends Component {
   render() {
     return (
       <div>
-        <div class="text-right">
+        <div className="text-right">
           <h1>
             <Moment format="dddd, MMM Do YYYY">{this.state.date}</Moment>
           </h1>

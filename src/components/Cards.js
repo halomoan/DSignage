@@ -16,7 +16,7 @@ export default class Cards extends Component {
           name: "Regency Room",
           level: "#33-00",
           pax: "12 pax",
-          photo: "mr0.png",
+          photo: "http://localhost/server/public/img/mr0.png",
           isVacant: false,
           date: "Monday April 20, 2020",
           owner: "Halomoan Kasim",
@@ -33,7 +33,7 @@ export default class Cards extends Component {
           name: "IT Meeting Room",
           level: "#33-00",
           pax: "12 pax",
-          photo: "mr1.png",
+          photo: "http://localhost/server/public/img/mr1.png",
           isVacant: true,
           date: "Monday April 20, 2020",
           owner: "Halomoan Kasim",
@@ -47,10 +47,10 @@ export default class Cards extends Component {
         },
         {
           id: "3",
-          name: "IT Meeting Room",
+          name: "Nassim Room",
           level: "#33-00",
           pax: "12 pax",
-          photo: "mr2.png",
+          photo: "http://localhost/server/public/img/mr2.png",
           isVacant: true,
           date: "Monday April 20, 2020",
           owner: "Halomoan Kasim",
@@ -64,10 +64,44 @@ export default class Cards extends Component {
         },
         {
           id: "4",
-          name: "IT Meeting Room",
+          name: "Clavon Room",
           level: "#33-00",
           pax: "12 pax",
-          photo: "mr3.png",
+          photo: "http://localhost/server/public/img/mr3.png",
+          isVacant: false,
+          date: "Monday April 20, 2020",
+          owner: "Halomoan Kasim",
+          time: "03:00 PM - 04:00 PM",
+          title:
+            "Very Important Meeting With Vendor with very long description ",
+          next_isVacant: true,
+          next_owner: "Halomoan Kasim",
+          next_time: "03:00 PM - 04:00 PM",
+          next_title: "Very Important Meeting With Vendor",
+        },
+        {
+          id: "5",
+          name: "Amber Room",
+          level: "#33-00",
+          pax: "12 pax",
+          photo: "http://localhost/server/public/img/mr3.png",
+          isVacant: false,
+          date: "Monday April 20, 2020",
+          owner: "Halomoan Kasim",
+          time: "03:00 PM - 04:00 PM",
+          title:
+            "Very Important Meeting With Vendor with very long description ",
+          next_isVacant: true,
+          next_owner: "Halomoan Kasim",
+          next_time: "03:00 PM - 04:00 PM",
+          next_title: "Very Important Meeting With Vendor",
+        },
+        {
+          id: "6",
+          name: "Mayer Room",
+          level: "#33-00",
+          pax: "12 pax",
+          photo: "http://localhost/server/public/img/mr3.png",
           isVacant: false,
           date: "Monday April 20, 2020",
           owner: "Halomoan Kasim",
@@ -93,7 +127,6 @@ export default class Cards extends Component {
       let sTime, eTime, next_sTime, next_eTime;
       const today = moment();
 
-      //console.log(mrooms);
       let rooms = mrooms.map((data, index) => {
         let room = {};
         let curr_meeting = null;

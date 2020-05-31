@@ -69,7 +69,7 @@ export default class MRCard extends Component {
                   {!room.next_isVacant ? (
                     <div>
                       <div className="mrcard-next">
-                        <div class="mrcard-nextbar">
+                        <div className="mrcard-nextbar">
                           <h4>Next Meeting: </h4>
                         </div>
                         <div className="mrcard-next-time">
@@ -87,7 +87,7 @@ export default class MRCard extends Component {
                   ) : (
                     <div>
                       <div className="mrcard-next">
-                        <div class="mrcard-nextbar">
+                        <div className="mrcard-nextbar">
                           <h4>Next Meeting: </h4>
                         </div>
                         <div className="mrcard-next-time">
