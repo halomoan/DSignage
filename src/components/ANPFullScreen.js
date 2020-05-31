@@ -72,6 +72,13 @@ export default class ANPFullScreen extends Component {
 
   render() {
     const showFull = this.state.isFull;
+    const imgStyle = {
+      display: "block",
+      maxHeight: "100%",
+      maxWidth: "100%",
+      height: "auto",
+      objectFit: "cover",
+    };
 
     return (
       <div>
@@ -83,12 +90,7 @@ export default class ANPFullScreen extends Component {
           }}
         >
           <div style={{ display: showFull ? "block" : "none" }}>
-            <img
-              src={this.state.srcImage}
-              width="1080"
-              height="1920"
-              alt="anp"
-            />
+            <img src={this.state.srcImage} style={imgStyle} alt="anp" />
           </div>
         </Fullscreen>
       </div>
