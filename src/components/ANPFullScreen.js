@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import moment from "moment";
 import axios from "axios";
-import Fullscreen from "react-full-screen";
+import { mrConfig } from "../utils/config";
 
 export default class ANPFullScreen extends Component {
   constructor(props) {
@@ -10,19 +10,22 @@ export default class ANPFullScreen extends Component {
     this.state = {
       isFull: false,
       imageName: null,
-      srcImage: "/img/mr0.png",
+      srcImage: "",
     };
   }
 
-  componentDidMount() {
-    const server_url = "http://localhost/server/";
-    const url = server_url + "/index.php/excsvr_json/calendar_get_item/99";
-    const mr_img_url = server_url + "/public/img/";
+  retrieveANP() {
+    //const srvaddr = "http://localhost/server/";
+    //const url = srvaddr + "/index.php/excsvr_json/calendar_get_item/99";
+    const srvaddr = mrConfig.srvaddr;
+    const url = mrConfig.urlANP;
+
+    const mr_img_url = srvaddr + "/public/img/";
     const today = moment();
 
     axios.get(url).then((res) => {
       const anpevents = res.data;
-      const anpevent = anpevents.map((data, index) => {
+      anpevents.map((data, index) => {
         if (data.event && data.event.length > 0) {
           const curr_event = data.event[0];
           const sTime = moment(
@@ -59,6 +62,17 @@ export default class ANPFullScreen extends Component {
     });
   }
 
+  componentDidMount() {
+    this.ANPTimer = setInterval(() => {
+      console.log("anp");
+      this.retrieveANP();
+    }, 12000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.ANPTimer);
+  }
+
   isCurrentEvent(now, sTime, eTime) {
     if (sTime.isBefore(now) && eTime.isAfter(now)) {
       return true;
@@ -66,33 +80,31 @@ export default class ANPFullScreen extends Component {
       return false;
     }
   }
-  goFull = () => {
-    this.setState({ isFull: true });
-  };
+  // goFull = () => {
+  //   this.setState({ isFull: true });
+  // };
 
   render() {
     const showFull = this.state.isFull;
-    const imgStyle = {
+    const fullStyle = {
+      height: "100%",
+      width: "100%",
+      overflow: "hidden",
+      position: "fixed",
+      top: "0px",
+      left: "0px",
+      zIndex: 1,
       display: "block",
-      maxHeight: "100%",
-      maxWidth: "100%",
-      height: "auto",
-      objectFit: "cover",
+    };
+    const hideStyle = {
+      display: "none",
     };
 
     return (
       <div>
-        {/* <button onClick={this.goFull}>Go Fullscreen</button> */}
-        <Fullscreen
-          enabled={this.state.isFull}
-          onChange={(isFull) => {
-            this.setState({ isFull });
-          }}
-        >
-          <div style={{ display: showFull ? "block" : "none" }}>
-            <img src={this.state.srcImage} style={imgStyle} alt="anp" />
-          </div>
-        </Fullscreen>
+        <div id="fullimage" style={showFull ? fullStyle : hideStyle}>
+          <img src={this.state.srcImage} alt="anp" />
+        </div>
       </div>
     );
   }

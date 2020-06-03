@@ -5,122 +5,40 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import axios from "axios";
 import moment from "moment";
+import { mrConfig } from "../utils/config";
 
 export default class Cards extends Component {
   constructor(props) {
     super();
     this.state = {
       rooms: [
-        {
-          id: "1",
-          name: "Regency Room",
-          level: "#33-00",
-          pax: "12 pax",
-          photo: "http://localhost/server/public/img/mr0.png",
-          isVacant: false,
-          date: "Monday April 20, 2020",
-          owner: "Halomoan Kasim",
-          time: "03:00 PM - 04:00 PM",
-          title:
-            "Very Important Meeting With Vendor.Super Super Long of Description ",
-          next_isVacant: false,
-          next_owner: "Halomoan Kasim",
-          next_time: "03:00 PM - 04:00 PM",
-          next_title: "Very Important Meeting With Vendor",
-        },
-        {
-          id: "2",
-          name: "IT Meeting Room",
-          level: "#33-00",
-          pax: "12 pax",
-          photo: "http://localhost/server/public/img/mr1.png",
-          isVacant: true,
-          date: "Monday April 20, 2020",
-          owner: "Halomoan Kasim",
-          time: "03:00 PM - 04:00 PM",
-          title:
-            "Very Important Meeting With Vendor with very long description ",
-          next_isVacant: false,
-          next_owner: "Halomoan Kasim",
-          next_time: "03:00 PM - 04:00 PM",
-          next_title: "Very Important Meeting With Vendor",
-        },
-        {
-          id: "3",
-          name: "Nassim Room",
-          level: "#33-00",
-          pax: "12 pax",
-          photo: "http://localhost/server/public/img/mr2.png",
-          isVacant: true,
-          date: "Monday April 20, 2020",
-          owner: "Halomoan Kasim",
-          time: "03:00 PM - 04:00 PM",
-          title:
-            "Very Important Meeting With Vendor with very long description ",
-          next_isVacant: false,
-          next_owner: "Halomoan Kasim",
-          next_time: "03:00 PM - 04:00 PM",
-          next_title: "Very Important Meeting With Vendor",
-        },
-        {
-          id: "4",
-          name: "Clavon Room",
-          level: "#33-00",
-          pax: "12 pax",
-          photo: "http://localhost/server/public/img/mr3.png",
-          isVacant: false,
-          date: "Monday April 20, 2020",
-          owner: "Halomoan Kasim",
-          time: "03:00 PM - 04:00 PM",
-          title:
-            "Very Important Meeting With Vendor with very long description ",
-          next_isVacant: true,
-          next_owner: "Halomoan Kasim",
-          next_time: "03:00 PM - 04:00 PM",
-          next_title: "Very Important Meeting With Vendor",
-        },
-        {
-          id: "5",
-          name: "Amber Room",
-          level: "#33-00",
-          pax: "12 pax",
-          photo: "http://localhost/server/public/img/mr3.png",
-          isVacant: false,
-          date: "Monday April 20, 2020",
-          owner: "Halomoan Kasim",
-          time: "03:00 PM - 04:00 PM",
-          title:
-            "Very Important Meeting With Vendor with very long description ",
-          next_isVacant: true,
-          next_owner: "Halomoan Kasim",
-          next_time: "03:00 PM - 04:00 PM",
-          next_title: "Very Important Meeting With Vendor",
-        },
-        {
-          id: "6",
-          name: "Mayer Room",
-          level: "#33-00",
-          pax: "12 pax",
-          photo: "http://localhost/server/public/img/mr3.png",
-          isVacant: false,
-          date: "Monday April 20, 2020",
-          owner: "Halomoan Kasim",
-          time: "03:00 PM - 04:00 PM",
-          title:
-            "Very Important Meeting With Vendor with very long description ",
-          next_isVacant: true,
-          next_owner: "Halomoan Kasim",
-          next_time: "03:00 PM - 04:00 PM",
-          next_title: "Very Important Meeting With Vendor",
-        },
+        // {
+        //   id: "1",
+        //   name: "Regency Room",
+        //   level: "#33-00",
+        //   pax: "12 pax",
+        //   photo: "http://localhost/server/public/img/mr0.png",
+        //   isVacant: false,
+        //   date: "Monday April 20, 2020",
+        //   owner: "Halomoan Kasim",
+        //   time: "03:00 PM - 04:00 PM",
+        //   title:
+        //     "Very Important Meeting With Vendor.Super Super Long of Description ",
+        //   next_isVacant: false,
+        //   next_owner: "Halomoan Kasim",
+        //   next_time: "03:00 PM - 04:00 PM",
+        //   next_title: "Very Important Meeting With Vendor",
+        // },
       ],
     };
   }
 
-  componentDidMount() {
-    let srvaddr = "http://localhost/server/";
+  retrieveMR() {
+    const srvaddr = mrConfig.srvaddr;
 
-    let url = srvaddr + "/index.php/excsvr_json/calendar_get_list/uol";
+    //let url = srvaddr + "/index.php/excsvr_json/calendar_get_list/uol";
+    const url = mrConfig.urlMR;
+
     axios.get(url).then((res) => {
       const mrooms = res.data;
 
@@ -191,9 +109,20 @@ export default class Cards extends Component {
 
         return room;
       });
-      console.log(rooms);
       this.setState({ rooms });
     });
+  }
+
+  componentDidMount() {
+    this.retrieveMR();
+    this.MRTimer = setInterval(() => {
+      console.log("mr");
+      this.retrieveMR();
+    }, 5000);
+  } //componentDidMount
+
+  componentWillUnmount() {
+    clearInterval(this.MRTimer);
   }
 
   isCurrentEvent(now, sTime, eTime) {
