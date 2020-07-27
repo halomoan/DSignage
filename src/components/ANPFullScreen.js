@@ -64,7 +64,7 @@ export default class ANPFullScreen extends Component {
 
   componentDidMount() {
     this.ANPTimer = setInterval(() => {
-      console.log("anp");
+      //console.log("anp");
       this.retrieveANP();
     }, 12000);
   }

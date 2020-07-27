@@ -25,10 +25,10 @@ export default class ShowDateTime extends Component {
     return (
       <div>
         <div className="text-right">
-          <h1>
+          <span class="navdate">
             <Moment format="dddd, MMM Do YYYY">{this.state.date}</Moment>
-          </h1>
-          <h2>{this.state.time.toLocaleTimeString()}</h2>
+          </span>
+          <span class="navtime">{this.state.time.toLocaleTimeString()}</span>
         </div>
       </div>
     );

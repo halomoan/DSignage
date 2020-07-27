@@ -9,7 +9,7 @@ const StyleWrapper = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    background: ${(props) => (props.vacant ? "rgba(31, 30, 30, 0.8)" : "")};
+    background: ${(props) => (props.vacant ? "" : "")};
     box-shadow: 0.5rem 0.5rem 3rem 1px rgba(0, 0, 0, 0.5);
     border-radius: 0.8rem;
   }
@@ -25,7 +25,10 @@ export default class MRCard extends Component {
             <div className="mrcard">
               <div className="mrcard-img">
                 {/* <img src={require(`../assets/images/mr${room.id}.png`)} /> */}
-                <img src={room.photo} />
+                <img
+                  src={room.photo}
+                  onError={(i) => (i.target.style.display = "none")}
+                />
               </div>
 
               <div className="mrcard-desk">
@@ -52,7 +55,7 @@ export default class MRCard extends Component {
                     </span>
                   </div>
                   <div className="mrcard-title">
-                    <h3>{room.isVacant ? "V a c a n t" : room.title}</h3>
+                    <span>{room.isVacant ? "V a c a n t" : room.title}</span>
                   </div>
 
                   {/*<p className="mrcard-text">
@@ -70,7 +73,7 @@ export default class MRCard extends Component {
                     <div>
                       <div className="mrcard-next">
                         <div className="mrcard-nextbar">
-                          <h4>Next Meeting: </h4>
+                          <span>Next Meeting: </span>
                         </div>
                         <div className="mrcard-next-time">
                           <span>{room.next_time}</span>
@@ -78,7 +81,6 @@ export default class MRCard extends Component {
                         <div className="mrcard-next-owner">
                           <span>{`Organizer: ${room.next_owner}`}</span>
                         </div>
-                        <br />
                         <div className="mrcard-next-title">
                           <span>{room.next_title}</span>
                         </div>
@@ -88,7 +90,7 @@ export default class MRCard extends Component {
                     <div>
                       <div className="mrcard-next">
                         <div className="mrcard-nextbar">
-                          <h4>Next Meeting: </h4>
+                          <span>Next Meeting: </span>
                         </div>
                         <div className="mrcard-next-time">
                           <span></span>

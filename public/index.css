@@ -28,6 +28,7 @@ img {
   background-color: #fff;
   margin-top: 3rem;
   margin-left: 0rem;
+  border-radius: 0.8rem;
 }
 
 .mrcard {
@@ -36,7 +37,6 @@ img {
   padding: 1rem;
   background-color: #fff;
   box-shadow: 0 1.4rem 8rem rgba(0, 0, 0, 0.2);
-  border-radius: 0.8rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +46,7 @@ img {
 .mrcard-img {
   min-width: 100%;
   max-width: 100%;
-  height: 25rem;
+  height: 24rem;
   transform: translate(0, -3rem);
   position: relative;
 }
@@ -170,8 +170,12 @@ img {
 .mrcard-nextbar {
   background-color: #5bc0de;
   border-radius: 0.25rem;
-  padding: 0.2em 0.6em 0.1em;
+  padding: 0.1em 0.1em 0.2em 0.2em;
   color: white;
+}
+
+.mrcard-nextbar span {
+  font-size: 1.5rem;
 }
 
 .mrcard-next-time span {
@@ -186,6 +190,7 @@ img {
   color: rgba(0, 0, 0, 0.5);
   font-size: 1.2rem;
   font-weight: bold;
+  margin-bottom: 15px;
 }
 
 .mrcard-next-title span {
@@ -194,4 +199,113 @@ img {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
   font-weight: bold;
+}
+
+.navlogo {
+  margin-top: 3px;
+  width: 150px;
+  height: 60px;
+  display: inline-block;
+}
+
+.navtitle {
+  color: black;
+  margin-left: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 1;
+  text-shadow: 3px 3px rgba(103, 128, 159, 0.5);
+  display: block;
+}
+
+.navsubtitle {
+  font-size: 12px;
+  margin-left: 10px;
+  font-style: oblique;
+}
+
+.navdate {
+  font-size: 24px;
+  display: block;
+  font-weight: bold;
+}
+.navtime {
+  font-size: 18px;
+  display: block;
+}
+
+@media only screen and (max-width: 1000px) {
+  .col {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+
+  .mrcard {
+    max-height: 40rem;
+  }
+
+  .mrcard-img {
+    height: 20rem;
+  }
+
+  .mrcard-mrname a {
+    font-size: 30px;
+  }
+  .mrcard-mrlevel a {
+    font-size: 120%;
+  }
+
+  .mrcard-mrlevel span {
+    font-size: 120%;
+  }
+  .mrcard-time span {
+    font-size: 1.5rem;
+  }
+  .mrcard-desk {
+    transform: translateY(-2.8rem);
+  }
+  .mrcard-info {
+    transform: translateY(-2rem);
+  }
+  .mrcard-owner span {
+    font-size: 1.2rem;
+  }
+
+  .mrcard-title {
+    font-size: 1rem;
+    height: 4rem;
+    margin: 1rem 0 0rem;
+  }
+
+  .mrcard-title span {
+    font-size: 1.5rem;
+  }
+
+  .mrcard-next {
+    margin-top: 0rem;
+  }
+
+  .mrcard-nextbar span {
+    font-size: 1.2rem;
+  }
+
+  .mrcard-next-time span {
+    font-size: 1.2rem;
+  }
+
+  .mrcard-next-owner span {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+
+  .mrcard-next-title span {
+    font-size: 1.2rem;
+    margin-bottom: 0rem;
+  }
+
+  .mrcard-desk {
+    height: 280px;
+  }
 }

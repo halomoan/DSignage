@@ -116,7 +116,6 @@ export default class Cards extends Component {
   componentDidMount() {
     this.retrieveMR();
     this.MRTimer = setInterval(() => {
-      console.log("mr");
       this.retrieveMR();
     }, 5000);
   } //componentDidMount

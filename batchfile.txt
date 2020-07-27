@@ -1,0 +1,4 @@
+@echo off
+echo Starting Digital Signage
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --start-fullscreen --app=http://192.168.23.244:888/server/public/uol.HTML
+exit
